@@ -10,8 +10,8 @@ if __name__ == '__main__':
 
     M = np.dot(signatures, exposures.T)
     patients = 4
-    df = pd.DataFrame(M[:, 0:patients].astype(int), index=df_signatures['SubType'].values)
-    print(df_exposures['Sample Names'][0:patients].values)
-    df.to_csv('M.csv', header=df_exposures['Sample Names'][0:patients].values)
+    df = pd.DataFrame(M.round().astype(int), index=df_signatures['SubType'].values)
+    print(df_exposures['Sample Names'].values)
+    df.to_csv('M.csv', header=df_exposures['Sample Names'].values)
 
 
