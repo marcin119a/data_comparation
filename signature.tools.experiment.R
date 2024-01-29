@@ -8,5 +8,5 @@ catalogues <- read.csv("/home/amso/Documents/data_comparation/data/M.csv", sep='
 row.names(catalogues) <- catalogues[, 1]
 catalogues <- catalogues[,-1]
 
-fit_results <- Fit(catalogues, signatures)
+fit_results <- Fit(catalogues, signatures, method='NNLS')
 save(fit_results, file = "/home/amso/Documents/data_comparation/data/fit_results.RData")
