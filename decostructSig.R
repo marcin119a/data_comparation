@@ -2,20 +2,19 @@ library(deconstructSigs)
 library(reshape)
 
 raw.my.signatures <- read.csv(
-  "/home/amso/Documents/mutation_signatures/output/WGS_signatures__sigProfiler_SBS_signatures_2019_05_22.modified.csv",
-  sep = '\t',
-  check.names = F,
-  row.names = 1)
-
-raw.my.signatures <- t(raw.my.signatures)
+  "/home/amso/Documents/data_comparation/benchmark_1_output/data/all_signatures.csv",
+  check.names = F)
+my.signatures <- subset(raw.my.signatures, select=colnames(signatures.cosmic))
+print(colnames(signatures.cosmic))
+print(colnames(my.signatures))
+rownames(my.signatures) <- make.names(rownames(my.signatures))
+print(my.signatures)
 
 raw.input <- read.csv(
-  "/home/amso/Documents/mutation_signatures/output/M.csv",
-  sep = '\t',
+  "/home/amso/Documents/data_comparation/benchmark_1_output/data/M2.dec.csv",
   check.names = F)
-
-raw.input$`Unnamed: 0` <- NULL
-raw.input <- t(raw.input)
+rownames(raw.input) <- raw.input$Patients
+raw.input$Patients <- NULL
 
 result <- list()
 for(sample in rownames(raw.input)) {
@@ -33,4 +32,4 @@ for(sample in rownames(raw.input)) {
 }
 
 final = reshape::merge_all(result)
-write.csv(final, '~/sinai/git/paper-201604/data/derived/deconstructsigs_output.csv')
+write.csv(final, '/home/amso/Documents/data_comparation/benchmark_1_output/deconstructsigs_output.csv')
