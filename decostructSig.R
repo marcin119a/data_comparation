@@ -11,7 +11,7 @@ rownames(my.signatures) <- make.names(rownames(my.signatures))
 print(my.signatures)
 
 raw.input <- read.csv(
-  "/home/amso/Documents/data_comparation/benchmark_1_output/data/M2.dec.csv",
+  "/home/amso/Documents/data_comparation/benchmark_1_output/data/M1.dec.csv",
   check.names = F)
 rownames(raw.input) <- raw.input$Patients
 raw.input$Patients <- NULL
