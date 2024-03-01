@@ -45,7 +45,7 @@ def main_block():
     for i in range(tumor.shape[1]):
         first_col = tumor[:, i]
         try:
-            best_columns, b, estimation_exposures = backward_elimination(first_col, signaturesCOSMIC, fold_size=4, threshold=0.01, significance_level=0.01)
+            best_columns, b, estimation_exposures = backward_elimination(first_col, signaturesCOSMIC, fold_size=4, threshold=0.01, significance_level=0.01,  shuffle=False)
             print(best_columns)
         except ValueError as e:
             print(e)
