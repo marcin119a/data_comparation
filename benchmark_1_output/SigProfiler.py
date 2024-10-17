@@ -1,6 +1,6 @@
 from SigProfilerAssignment import Analyzer as Analyze
 
-samples = 'data/M1.csv'
+samples = 'data/tumorBRCA.txt'
 
-Analyze.t (samples, 'output', input_type="matrix", exome=False,
-                   signature_database='data/WGS_signatures__sigProfiler_SBS_signatures_2019_05_22.modified.csv')
+Analyze.cosmic_fit(samples, 'output', input_type="matrix", exome=False,
+                   signature_database='data/COSMIC_v3.4_SBS_GRCh37.txt')
